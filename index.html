@@ -1,0 +1,79 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <title>Weight App</title>
+    <style>
+        body{
+            margin-top: 50px;
+        }
+    </style>
+  </head>
+  <body class="bg-secondary">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <h1 class="display-4 text-center text-white py-3">Weight converter</h1>
+                    <div class="form-group">
+                        <input type="number" id="lbsInput" class="form-control" placeholder="Enter pounds...">
+                    </div><div id="output">
+                    <div class="card bg-primary text-white my-2">
+                        <div class="card-body">
+                            <h4>Grams:</h4>
+                            <div id="gramOutput"></div>
+                        </div>
+                      </div>
+                      <div class="card bg-success text-white my-2">
+                        <div class="card-body">
+                            <h4>Kilograms:</h4>
+                            <div id="kilogramOutput"></div>
+                        </div>
+                      </div>
+                      <div class="card bg-danger text-white my-2">
+                        <div class="card-body">
+                            <h4>Ounces:</h4>
+                            <div id="ounceOutput"></div>
+                        </div>
+                      </div>
+                </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <script>
+            // Initially Output is zero
+            document.getElementById('output').style.display = 'none'
+            let lbsInput = document.getElementById('lbsInput')
+        
+            document.getElementById('lbsInput').addEventListener('input', (e)=>{
+              // Checks if the length of input is zero
+              if (lbsInput.value.length == 0){
+                  document.getElementById('output').style.display = 'none'
+                }
+                else{
+                  // If not zero, then output the following
+                  document.getElementById('output').style.display = 'block'
+                  let pounds = e.target.value
+                  let gramOutput = pounds * 453.592
+                  let kilogramOutput = pounds * 0.453592
+                  let ounceOutput = pounds * 16
+                  document.getElementById('gramOutput').innerText = gramOutput.toFixed() + ' Grams'
+                  document.getElementById('kilogramOutput').innerText = kilogramOutput.toFixed() + ' Kilograms'
+                  document.getElementById('ounceOutput').innerText = ounceOutput.toFixed() + ' Ounces'
+                }
+            })
+    </script>
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.14.7/dist/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+  </body>
+</html>
